@@ -64,6 +64,8 @@ player.move = function(x, y)
     /*Jumping*/
     if ( (input.keysDown.has(38) || input.keysDown.has(32) ) && !player.isJumping) 
     { 
+        var audio = new Audio("/CrazyCatfish.github.io/Media/sound/effects/Movement/Jumping and Landing/Mario-jump-sound.mp3")
+        audio.play();
         player.isJumping = true;
         player.velY = -player.speed*2;
     }

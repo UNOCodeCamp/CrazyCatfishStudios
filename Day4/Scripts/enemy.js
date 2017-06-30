@@ -1,12 +1,22 @@
 function LavaHazard()
 {
-
+    var lava = new Object();
     this.x = null;
     this.y = null
     this.width = 32;
     this.height = 32;
-    this.image = new image();
-    this.image.scr = "Assets/Lava_CrazyCatfishYO_ONE_FRAME.png"
+    this.image = new Image();
+    this.image.scr = "Assets/lava_0.png"
+    
+     this.poses = {}
+     this.poses['itself'] = new Animation (["Assets/lava_0.png", "Assets/lava_1.png"])
+     this.currentPose = "itself"
+     
+    var sprite = this.poses[this.currentPose];
+    this.image = sprite.getImage();
+    var lavaudio = new Audio("/CrazyCatfish.github.io/Media/sound/effects/Movement/Jumping and Landing/DryLava.mp3")
+    lavaudio.play();
+    
     
     this.draw = function()
     {

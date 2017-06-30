@@ -22,9 +22,12 @@ game.main = function()
     {
         game.update();
         renderer.draw();
-        window.requestAnimationFrame(game.main);
     }
-
+    else
+    {
+        hud.drawGameOver();
+    }
+    window.requestAnimationFrame(game.main);
 };
 
 // Update game objects
@@ -50,6 +53,8 @@ game.update = function()
         var hazard = scene.hazards[i];
         if ( hazard.isTouching(player) )
         {
+            var audio = new Audio("Media/sound/effects/Death Screams/Alien/sfx_deathscream_alien1.wav");
+            audio.play()
             game.isOver = true;
         }
     }

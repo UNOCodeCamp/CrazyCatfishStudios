@@ -65,10 +65,9 @@ function Scene()
             hazard.y = j*32;
           }
           else if (tileID =='&'){
-            var hazard = new FloorHazard();
+            var hazard = new LavaHazard();
             hazard.x = i*32;
             hazard.y = j*32;
-            //hazard.image.src = "Assets/"   
             this.hazards.push(hazard);
             
           }
