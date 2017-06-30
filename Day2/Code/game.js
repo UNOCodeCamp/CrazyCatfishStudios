@@ -1,5 +1,6 @@
 game = new Object();
 
+game.score = 0;
 
 game.start = function()
 {
@@ -18,6 +19,18 @@ game.main = function()
 
 // Update game objects
 game.update = function() 
-{
-	
+{	
+	player.move(input.x, input.y);
+	var now = Date.now()
+	if(now - enemy.age > 1000)
+	{
+		enemy.move();
+	}
+	if ( player.isTouching(enemy) && player.isAttacking)
+	{
+		enemy.move();
+		game.score++
+	}
+	player.isAttacking = false;
 };
+
